@@ -21,31 +21,39 @@
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <style>
         #playground{
-            background: #e0ffe0 url(img/pixel_grid.jpg);
+            background: rgba(184, 0, 0, 0.95);
             width: 400px;
             height: 200px;
             position: relative;
             overflow: hidden;
         }
         #ball {
-            background: #fbb;
+            background: #f3ffd1; /* Old browsers */
+            background: -moz-radial-gradient(center, ellipse cover,  #f3ffd1 4%, #ccff00 61%); /* FF3.6+ */
+            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(4%,#f3ffd1), color-stop(61%,#ccff00)); /* Chrome,Safari4+ */
+            background: -webkit-radial-gradient(center, ellipse cover,  #f3ffd1 4%,#ccff00 61%); /* Chrome10+,Safari5.1+ */
+            background: -o-radial-gradient(center, ellipse cover,  #f3ffd1 4%,#ccff00 61%); /* Opera 12+ */
+            background: -ms-radial-gradient(center, ellipse cover,  #f3ffd1 4%,#ccff00 61%); /* IE10+ */
+            background: radial-gradient(ellipse at center,  #f3ffd1 4%,#ccff00 61%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3ffd1', endColorstr='#ccff00',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 0px;
+            height: 0px;
             left: 150px;
             top: 100px;
             border-radius: 10px;
         }
         .paddle {
-            background: #bbf;
+            background: #1f55d5;
             left: 50px;
             top: 70px;
             position: absolute;
-            width: 30px;
+            width: 15px;
             height: 70px;
         }
         #paddleB {
             left: 320px;
+            background: #FFAF21;
         }
     </style>
 </head>
@@ -58,6 +66,11 @@
 <header>
     <h1>Ping Pong</h1>
 </header>
+
+<div id="scoreboard">
+    <div class="score">Player A : <span id="scoreA">0</span></div>
+    <div class="score">Player B : <span id="scoreB">0</span></div>
+</div>
 
 <div id="game">
     <div id="playground">
