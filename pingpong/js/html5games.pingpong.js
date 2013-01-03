@@ -35,17 +35,18 @@ var $playground, $paddleA, $paddleB, $ball, $scoreA, $scoreB;
 function moveBall() {
     "use strict";
     // reference useful variables
+
+    // TO-DO: paddleAX & paddleBX doesn't need to calculated here as X is fixed
+
     var playgroundHeight = parseInt($playground.height(),10),
         playgroundWidth = parseInt($playground.width(),10),
         ball = pingpong.ball,
-    // TODO: doesn't need to calculated here as X is fixed
         paddleAX = parseInt($paddleA.css("left"),10)+parseInt($paddleA.css("width"),10),
         paddleAYBottom = parseInt($paddleA.css("top"),10)+parseInt($paddleA.css("height"),10),
         paddleAYTop = parseInt($paddleA.css("top"),10),
-    // TODO: doesn't need to calculated here as X is fixed
         paddleBX = parseInt($paddleB.css("left"),10),
         paddleBYBottom = parseInt($paddleB.css("top"),10)+parseInt($paddleB.css("height"),10),
-        paddleBYTop = parseInt($paddleB.css("top"),10)
+        paddleBYTop = parseInt($paddleB.css("top"),10);
 
     // check playground boundary
 
@@ -86,6 +87,7 @@ function moveBall() {
         });
         ball.directionX = 1;
     }
+
     ball.x += ball.speed * ball.directionX;
     ball.y += ball.speed * ball.directionY;
 
