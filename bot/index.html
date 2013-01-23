@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-resource.min.js">
+    </script>
+    <script>
+        function TweetsCtrl($scope, $http) {
+
+           // $scope.tweets = [];
+            $http.get('http://search.twitter.com/search.json?q=%22great%20meeting%22&rpp=5&include_entities=true&result_type=mixed').success(function(data) {
+                $scope.tweets = data;
+                alert('here');
+            });
+        }
+    </script>
+</head>
+<body ng-controller="TweetsCtrl">
+<h2>Bot</h2>
+<div ng-repeat="tweet in tweets">
+xx
+</div>
+</body>
+</html>
